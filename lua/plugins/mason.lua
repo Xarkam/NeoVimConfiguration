@@ -28,6 +28,13 @@ return {
 					"volar",
 					"gitlab_ci_ls",
 				},
+        ui = {
+        icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗",
+          },
+        },
 			})
 		end,
 	},
@@ -38,7 +45,17 @@ return {
 			lspconfig.lua_ls.setup({})
 			lspconfig.tsserver.setup({})
 			lspconfig.tailwindcss.setup({})
-			lspconfig.csharp_ls.setup({})
+			lspconfig.csharp_ls.setup({
+        config = {
+		      csharpls = function()
+			      return {
+				      cmd = {"csharp-ls"};
+				      filetypes = {"cs", "razor", "csproj", "fs", "fsproj"};
+				      root_dir = require("lspconfig").util.root_pattern("_.sln", "_.csproj", "packages.config");
+			      }
+		      end,
+	      },
+      })
 			lspconfig.cssls.setup({})
 			lspconfig.dockerls.setup({
 				settings = {
