@@ -92,3 +92,4 @@ vim.keymap.set('n', '<leader>hr', "<cmd>call clearmatches()<CR>", { desc = 'Togg
 
 vim.wo.number = true
 vim.wo.relativenumber = true
+

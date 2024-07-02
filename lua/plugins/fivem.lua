@@ -1,5 +1,6 @@
 return {
 	"Z3rio/FiveM.nvim",
+    enabled = false,
 
 	config = function()
 		require("fivem").setup({
